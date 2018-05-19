@@ -7,7 +7,7 @@ var express = require('express');
 var app = express();
 
 
-const server = require("http").Server(app); 
+const server = require("https").Server(app); 
 const port = process.env.PORT || 10002; 
 
 var io = require("socket.io")(server); 
