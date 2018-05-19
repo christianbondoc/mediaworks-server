@@ -7,6 +7,10 @@ var express = require('express');
 var app = express();
 const server = require("https").Server(app); 
 const port = process.env.PORT || 10002; 
+var io = require("socket.io")(server); 
+
+//-- Cors via Cors instruction on github --//
+/*
 var cors = require('cors');
 app.use(cors())
 
@@ -17,9 +21,8 @@ app.get('/products/:id', function (req, res, next) {
 app.listen(80, function () {
     console.log('CORS-enabled web server listening on port 80')
 })
-
-var io = require("socket.io")(server); 
-
+*/
+//-- End Cors --// 
 
 io.on("connection", function(socket){
     socket.on("addUser", function(data){
