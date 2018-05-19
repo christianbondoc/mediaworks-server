@@ -5,10 +5,18 @@ var url = "mongodb://daren:mypracticum@ds119490.mlab.com:19490/bcit_hive";
 // setup socket.io
 var express = require('express');
 var app = express();
-var cors = require('cors');
-
 const server = require("https").Server(app); 
 const port = process.env.PORT || 10002; 
+var cors = require('cors');
+app.use(cors())
+
+app.get('/products/:id', function (req, res, next) {
+    res.json({ msg: 'This is CORS-enabled for all origins!' })
+})
+
+app.listen(80, function () {
+    console.log('CORS-enabled web server listening on port 80')
+})
 
 var io = require("socket.io")(server); 
 
