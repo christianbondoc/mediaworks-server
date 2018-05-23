@@ -5,7 +5,7 @@ var url = "mongodb://daren:mypracticum@ds119490.mlab.com:19490/bcit_hive";
 // setup socket.io
 var express = require('express');
 var app = express();
-const server = require("https").Server(app); 
+const server = require("http").Server(app); 
 const port = process.env.PORT || 10002; 
 var io = require("socket.io")(server); 
 
@@ -99,9 +99,14 @@ server.listen(port, (err)=>{
 // ALLOW ACCESS *************
 app.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "http://mediaworks-tv-app.herokuapp.com/");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
+});
+
+// Our first route
+app.get('/', function (req, res) {
+  res.send('Hello Node + GitHub! I did changes.');
 });
 
 /* Main Docs Example:
