@@ -87,9 +87,9 @@ io.on("connection", function(socket){
         // send mail here using nodemailer.
         var mailOptions = {
             from: 'bcitmediaworks@gmail.com',
-            to: 'megamanv5@hotmail.com',
-            subject: 'Sending Email using Node.js',
-            text: 'That was easy!'
+            to: data,
+            subject: 'BCIT Needs You For A Project!',
+            text: 'Email back to accept project.'
         };
           
         transporter.sendMail(mailOptions, function(error, info){
