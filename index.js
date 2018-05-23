@@ -9,6 +9,18 @@ const server = require("http").Server(app);
 const port = process.env.PORT || 10002; 
 var io = require("socket.io")(server); 
 
+// nodemailer for mail setup.
+var nodemailer = require('nodemailer');
+
+// mail settings
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'bcitmediaworks@gmail.com',
+      pass: 'practicumd3'
+    }
+  });
+
 //-- Cors via Cors instruction on github --//
 /*
 var cors = require('cors');
@@ -82,6 +94,25 @@ io.on("connection", function(socket){
             });
 
             db.close();
+        });
+    });
+
+    // send mail
+    socket.on("sendMail", function(data) {
+        // send mail here using nodemailer.
+        var mailOptions = {
+            from: 'bcitmediaworks@gmail.com',
+            to: 'megamanv5@hotmail.com',
+            subject: 'Sending Email using Node.js',
+            text: 'That was easy!'
+        };
+          
+        transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
         });
     });
 });
