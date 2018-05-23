@@ -112,6 +112,7 @@ io.on("connection", function(socket){
               console.log(error);
             } else {
               console.log('Email sent: ' + info.response);
+              socket.emit("successfullySent", null);
             }
         });
     });
