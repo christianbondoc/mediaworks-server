@@ -21,21 +21,6 @@ var transporter = nodemailer.createTransport({
     }
   });
 
-//-- Cors via Cors instruction on github --//
-/*
-var cors = require('cors');
-app.use(cors())
-
-app.get('/products/:id', function (req, res, next) {
-    res.json({ msg: 'This is CORS-enabled for all origins!' })
-})
-
-app.listen(80, function () {
-    console.log('CORS-enabled web server listening on port 80')
-})
-*/
-//-- End Cors --// 
-
 io.on("connection", function(socket){
     socket.on("addUser", function(data){
         console.log('gets here.')
