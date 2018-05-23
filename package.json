@@ -4,13 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-=======
-    "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node index.js"
->>>>>>> 7c0c2b178e5cb9b2bf3c0f1ad2f093442826e88f
   },
   "author": "",
   "license": "ISC",
